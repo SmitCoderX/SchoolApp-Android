@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.example.sangariyaadarshsrsecschool.FragmentDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="580dp">
+    </fragment>
+
+    <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
+        android:id="@+id/navigation_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_rect_white"
+        android:elevation="4dp"
+        android:padding="12dp"
+        app:bnc_mode="inside"
+        android:layout_gravity="center">
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/c_item_rest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@color/red_active"
+            app:bt_colorInactive="@color/red_inactive"
+            app:bt_icon="@drawable/ic_home"
+            app:bt_shape="@drawable/transition_background_drawable_default"
+            app:bt_title="@string/home"/>
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/c_item_rest1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@color/blue_active"
+            app:bt_colorInactive="@color/blue_inactive"
+            app:bt_icon="@drawable/ic_happy"
+            app:bt_shape="@drawable/transition_background_drawable_default"
+            app:bt_title="@string/Dashboard"/>
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/c_item_rest2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@color/grey_active"
+            app:bt_colorInactive="@color/gery_inactive"
+            app:bt_icon="@drawable/ic_photos"
+            app:bt_shape="@drawable/transition_background_drawable_default"
+            app:bt_title="@string/photos" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/c_item_rest3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@color/green_active"
+            app:bt_colorInactive="@color/green_inactive"
+            app:bt_icon="@drawable/ic_playlist"
+            app:bt_shape="@drawable/transition_background_drawable_default"
+            app:bt_title="@string/notification" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/c_item_rest4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@color/orange_active"
+            app:bt_colorInactive="@color/orange_inactive"
+            app:bt_icon="@drawable/ic_person"
+            app:bt_shape="@drawable/transition_background_drawable_default"
+            app:bt_title="@string/profile" />
+        <!-- Add more child items here - max upto 5 -->
+
+    </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
+</LinearLayout>
