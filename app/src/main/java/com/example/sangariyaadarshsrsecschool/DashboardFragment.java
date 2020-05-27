@@ -4,24 +4,19 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridLayout;
-import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
-import static androidx.constraintlayout.widget.Constraints.TAG;
 
-public class FragmentDashboard extends Fragment {
+public class DashboardFragment extends Fragment {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "DashboardFragment";
 
     //vars
     private ArrayList<String> mNames = new ArrayList<>();
@@ -43,8 +38,10 @@ public class FragmentDashboard extends Fragment {
     }
     private void getdata()
     {
+
+        Log.d(TAG, "getdata: preaparing bitmap");
         mImage.add("https://i.imgur.com/16g4Nbu.png");
-        mNames.add("Online Class");
+        mNames.add("Online Study");
 
         mImage.add("https://i.imgur.com/lxmkxJG.png");
         mNames.add("Daily Work");
@@ -61,8 +58,8 @@ public class FragmentDashboard extends Fragment {
         mImage.add("https://i.imgur.com/OgS8Zk7.png");
         mNames.add("Gallery");
 
-        DashboardAdapter adapter = new DashboardAdapter(getActivity(), mImage, mNames);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(getActivity(), mImage, mNames);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2  ));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2 ));
     }
-      }
+}

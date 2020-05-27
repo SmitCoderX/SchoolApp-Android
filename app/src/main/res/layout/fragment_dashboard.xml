@@ -3,16 +3,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentDashboard"
+    tools:context=".DashboardFragment"
     android:id="@+id/dashboard_fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.recyclerview.widget.RecyclerView
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Dashboard"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textColor="#000"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recyclerView">
+        android:orientation="vertical"
+        android:layout_marginTop="40dp">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <!-- TODO: Update blank fragment layout -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recyclerView">
 
+        </androidx.recyclerview.widget.RecyclerView>
 
+    </LinearLayout>
 </FrameLayout>

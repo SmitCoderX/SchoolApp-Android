@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <fragment
         android:id="@+id/home_fragment"
-        android:name="com.example.sangariyaadarshsrsecschool.FragmentDashboard"
+        android:name="com.example.sangariyaadarshsrsecschool.DashboardFragment"
         android:layout_width="match_parent"
-        android:layout_height="580dp">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
     </fragment>
+
 
     <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
         android:id="@+id/navigation_bar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="72dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_rect_white"
         android:elevation="4dp"
         android:padding="12dp"
         app:bnc_mode="inside"
-        android:layout_gravity="center">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
 
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/c_item_rest"
@@ -33,7 +44,7 @@
             app:bt_colorInactive="@color/red_inactive"
             app:bt_icon="@drawable/ic_home"
             app:bt_shape="@drawable/transition_background_drawable_default"
-            app:bt_title="@string/home"/>
+            app:bt_title="@string/home" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/c_item_rest1"
@@ -44,7 +55,7 @@
             app:bt_colorInactive="@color/blue_inactive"
             app:bt_icon="@drawable/ic_happy"
             app:bt_shape="@drawable/transition_background_drawable_default"
-            app:bt_title="@string/Dashboard"/>
+            app:bt_title="@string/Dashboard" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/c_item_rest2"
@@ -81,4 +92,5 @@
         <!-- Add more child items here - max upto 5 -->
 
     </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
