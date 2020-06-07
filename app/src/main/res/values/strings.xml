@@ -13,7 +13,8 @@
     <string name="call">Call</string>
     <string name="About">About Us</string>
     <string name="Dashboard">Dashboard</string>
-
+    <string name="Events_Title"> <u> Events </u> </string>
+    <string name="Holiday_Title"> <u> Holidays </u> </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

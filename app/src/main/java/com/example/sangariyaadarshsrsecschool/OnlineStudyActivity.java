@@ -1,47 +1,65 @@
 package com.example.sangariyaadarshsrsecschool;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+
 
 public class OnlineStudyActivity extends AppCompatActivity {
 
     private static final String TAG = "OnlineStudyActivity";
+
+    //vars
+    private ImageView CalendarBack;
+    private androidx.appcompat.widget.Toolbar toolbar;
+    private TabLayout tabLayout;
+    private  ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_online_study);
 
-        Button button = findViewById(R.id.backbutton);
+        Log.d(TAG, "onCreate: called");
+        //Id's
+        CalendarBack = findViewById(R.id.CalendarBack);
+        toolbar = findViewById(R.id.toolbarOnlineStudy);
+        tabLayout = findViewById(R.id.TabLayoutOnlineStudy);
+        viewPager = findViewById(R.id.ViewPagerOnlineStudy);
+
+        //Toolbar stuff
+        setSupportActionBar(toolbar);
+        setupViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
+
+        //On Click Listener
+        CalendarBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+                finish();
+            }
+        });
     }
-    private void getIncomingIntent(){
-        Log.d(TAG, "getIncomingIntent: checking for incoming intents.");
 
-        if(getIntent().hasExtra("image_name")){
-            Log.d(TAG, "getIncomingIntent: found intent extras.");
-
-            String imageName = getIntent().getStringExtra("image_name");
-
-            setImage(imageName);
-        }
-    }
-
-
-    private void setImage( String imageName){
-        Log.d(TAG, "setImage: setting te image and name to widgets.");
-
-        TextView activity_heading = findViewById(R.id.activity_heading);
-        activity_heading.setText(imageName);
-
+    private void setupViewPager(ViewPager viewPager)
+    {
+        OnlineStudyPagerAdapter adapter = new OnlineStudyPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new OnlineBooksFragment(),"BOOKS");
+        adapter.addFragment(new NotesFragment(), "NOTES");
+        adapter.addFragment(new OnlineVideoFragment(),"VIDEOS");
+        viewPager.setAdapter(adapter);
     }
 }

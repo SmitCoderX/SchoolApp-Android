@@ -1,65 +1,70 @@
 package com.example.sangariyaadarshsrsecschool;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 
 
-public class DashboardFragment extends Fragment {
+public class DashboardFragment extends Fragment implements View.OnClickListener {
 
     private static final String TAG = "DashboardFragment";
-
-    //vars
-    private ArrayList<String> mNames = new ArrayList<>();
-    private ArrayList<String> mImage = new ArrayList<>();
-
-    RecyclerView recyclerView;
+    CardView DashOnlineClass, DashDailyWork, DashStudentEssential, DashCalendar, DashResult, DashGallery;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        DashOnlineClass = view.findViewById(R.id.DashOnlineClass);
+        DashDailyWork = view.findViewById(R.id.DashDailyWork);
+        DashStudentEssential = view.findViewById(R.id.DashStudentEssential);
+        DashCalendar = view.findViewById(R.id.DashCalendar);
+        DashResult = view.findViewById(R.id.DashResult);
+        DashGallery = view.findViewById(R.id.DashGallery);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        DashOnlineClass.setOnClickListener(this);
+        DashDailyWork.setOnClickListener(this);
+        DashStudentEssential.setOnClickListener(this);
+        DashCalendar.setOnClickListener(this);
+        DashResult.setOnClickListener(this);
+        DashGallery.setOnClickListener(this);
 
-        getdata();
         return view;
 
     }
-    private void getdata()
-    {
 
-        Log.d(TAG, "getdata: preaparing bitmap");
-        mImage.add("https://i.imgur.com/16g4Nbu.png");
-        mNames.add("Online Study");
-
-        mImage.add("https://i.imgur.com/lxmkxJG.png");
-        mNames.add("Daily Work");
-
-        mImage.add("https://i.imgur.com/WYmr7hu.png");
-        mNames.add("Student Essentials");
-
-        mImage.add("https://i.imgur.com/sgUVtlO.png");
-        mNames.add("Calendar");
-
-        mImage.add("https://i.imgur.com/QJd1tK4.png");
-        mNames.add("Result");
-
-        mImage.add("https://i.imgur.com/OgS8Zk7.png");
-        mNames.add("Gallery");
-
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(getActivity(), mImage, mNames);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2 ));
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.DashOnlineClass:
+                Intent intent = new Intent(v.getContext(), OnlineStudyActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.DashDailyWork:
+                Intent intent1 = new Intent(v.getContext(), DailyWorkActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.DashStudentEssential:
+                Intent intent2 = new Intent(v.getContext(), StudentEssentialActivity.class);
+                startActivity(intent2);
+                break;
+            case R.id.DashCalendar:
+                Intent intent3 = new Intent(v.getContext(), CalendarActivity.class);
+                startActivity(intent3);
+                break;
+            case R.id.DashResult:
+                Intent intent4 = new Intent(v.getContext(), ResultActivity.class);
+                startActivity(intent4);
+                break;
+            case R.id.DashGallery:
+                Intent intent5 = new Intent(v.getContext(), GalleryActivity.class);
+                startActivity(intent5);
+            default:
+        }
     }
 }

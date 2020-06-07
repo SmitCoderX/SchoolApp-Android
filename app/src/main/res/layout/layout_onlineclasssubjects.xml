@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="15dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/subjectCardView">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/mentor"
+        android:id="@+id/subjectImage"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Subject Test"
+        android:id="@+id/subjectText"
+        android:layout_toEndOf="@+id/subjectImage"
+        android:layout_centerVertical="true"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="60dp"
+        android:textColor="#000"/>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
